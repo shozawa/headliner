@@ -5,15 +5,12 @@ var headerElements = ["h1", "h2", "h3"].map(function(elm) {
   return document.querySelectorAll(elm + ">a");
  });
 
-var win = window.open();
-win.document.write("<html><head><title>test</title></head><body><div id='main'></div></body></html>");
-var main = win.document.getElementById("main");
+document.write("<html><head><title>HEADLINES</title></head><body><div id='main'></div></body></html>");
+var main = document.getElementById("main");
 
 function appendHeadlines(target, headlines) {
-  var str_hl = Array.prototype.join.call(headlines, '');
-
   for(var i=0; i < headlines.length; i++) {
-    target.insertAdjacentHTML('afterend', "<h2>" + headlines[i].innerHTML + "</h2>");
+    target.insertAdjacentHTML('beforeend', "<h2>" + headlines[i].outerHTML + "</h2>");
   }
 }
 
